@@ -1,1 +1,1 @@
-# art-quiz
+https://undro-dev.github.io/art-quiz/art-quiz/dist
