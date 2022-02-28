@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Art Quiz</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- <section class="main-page">
+      <div class="container main-page-container">
+        <header class="header">
+          <a href="#/settings"
+            ><span class="material-icons icon-settings">settings</span></a
+          >
+        </header>
+        <main class="main">
+          <div class="block-content">
+            <div class="block-content__img"></div>
+            <div class="block-content__btns">
+              <a href="#/artist"
+                ><div class="btn artist-quiz">Artist quiz</div></a
+              >
+              <a href="#/pictures"
+                ><div class="btn pictures">Pictures quiz</div></a
+              >
+            </div>
+          </div>
+        </main>
+        <footer class="footer">
+          <p class="dev-name">Vitaly Undro</p>
+        </footer>
+      </div>
+    </section> -->
+    <!-- <section class="settings">
+
+    
+      <div class="container settings-container">
+        <header class="settings-header">
+          <a href="#/"
+            ><span class="material-icons icon-settings arrow-back"
+              >arrow_back</span
+            ></a
+          >
+          <a href="#/"
+            ><span class="material-icons icon-settings close">close</span></a
+          >
+        </header>
+        <main class="settings-main">
+          <div class="wrapper-settings">
+            <div class="wrapper-settings-item">
+              <div class="volume-settings">
+                <h2>Volume</h2>
+                <input class="input-volume" type="range" />
+                <div class="volume-icon">
+                  <span class="material-icons volume volume-up"
+                    >volume_off</span
+                  >
+                  <span class="material-icons volume volume-up">volume_up</span>
+                </div>
+              </div>
+              <div class="time-settings">
+                <h2>Time game</h2>
+                <div class="onoffswitch">
+                  <input
+                    type="checkbox"
+                    name="onoffswitch"
+                    class="onoffswitch-checkbox"
+                    id="myonoffswitch"
+                    tabindex="0"
+                    checked
+                  />
+                  <label class="onoffswitch-label" for="myonoffswitch">
+                    <span class="onoffswitch-inner"></span>
+                    <span class="onoffswitch-switch"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="time-settings-answer">
+                <h2>Time to answer</h2>
+                <div class="wrapper-input">
+                  <div class="wrapper-input-btn">
+                    <span class="material-icons icon-settings"> remove </span>
+                  </div>
+                  <span class="wrapper-input-count">30</span>
+                  <div class="wrapper-input-btn">
+                    <span class="material-icons icon-settings"> add </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="wrapper-settings-btns">
+              <button id="default" class="settings-btns">Default</button>
+              <button id="save" class="settings-btns">Save</button>
+            </div>
+          </div>
+        </main>
+        <footer class="footer">
+          <p class="dev-name">Vitaly Undro</p>
+        </footer>
+      </div>
+    </section> -->
+
+    <!-- <section id="categories" class = "categories-quiz">
+      <div class="container categories-container">
+        <header class="categories-header">
+          <div class="categories__logo"></div>
+          <a class="categories__home-link" href="#/">Home</a>
+          <div class="empty-div"></div>
+          <a href="#/settings"
+            ><span class="material-icons icon-settings">settings</span></a
+          >
+        </header>
+        <main class="categories-main">
+          <div class="categories-main__item row-first">
+            <a class="categories-main__item-link" href="#/quiz">
+              <div class="quiz-test portrait">
+                <p class="quiz-test-logo-text">
+                  Portrait <span>0</span>/<span>10</span>
+                </p>
+                <div class="quiz-test-logo-img portrait-img"></div>
+                <div class="repeat">
+                  <span class="material-icons icon-replay">replay</span>
+                  <span>Play again</span>
+                </div>
+              </div>
+            </a>
+            <a class="categories-main__item-link" href="#/quiz">
+              <div class="quiz-test landscape">
+                <p class="quiz-test-logo-text">
+                  Landscape <span>0</span>/<span>10</span>
+                </p>
+                <div class="quiz-test-logo-img landscape-img"></div>
+              </div>
+            </a>
+            <a class="categories-main__item-link" href="#/quiz">
+              <div class="quiz-test impressionism">
+                <p class="quiz-test-logo-text">
+                  Impressionism <span>0</span>/<span>10</span>
+                </p>
+                <div class="quiz-test-logo-img impressionism-img"></div>
+              </div>
+            </a>
+            <a class="categories-main__item-link" href="#/quiz">
+              <div class="quiz-test expressionism">
+                <p class="quiz-test-logo-text">
+                  Expressionism <span>0</span>/<span>10</span>
+                </p>
+                <div class="quiz-test-logo-img expressionism-img"></div>
+              </div>
+            </a>
+            <a class="categories-main__item-link" href="#/quiz">
+              <div class="quiz-test avant-garde">
+                <p class="quiz-test-logo-text">
+                  Avant-garde <span>0</span>/<span>10</span>
+                </p>
+                <div class="quiz-test-logo-img avant-garde-img"></div>
+              </div>
+            </a>
+            <a class="categories-main__item-link" href="#/quiz">
+              <div class="quiz-test realism">
+                <p class="quiz-test-logo-text">
+                  Realism <span>0</span>/<span>10</span>
+                </p>
+                <div class="quiz-test-logo-img realism-img"></div>
+              </div>
+            </a>
+          </div>
+          <div class="categories-main__item row-second">
+            <a class="categories-main__item-link" href="#/quiz">
+              <div class="quiz-test religion">
+                <p class="quiz-test-logo-text">
+                  Religion <span>0</span>/<span>10</span>
+                </p>
+                <div class="quiz-test-logo-img religion-img"></div>
+                <div class="repeat">
+                  <span class="material-icons icon-replay">replay</span>
+                  <span>Play again</span>
+                </div>
+              </div>
+            </a>
+            <a class="categories-main__item-link" href="#/quiz">
+              <div class="quiz-test renaissance">
+                <p class="quiz-test-logo-text">
+                  Renaissance <span>0</span>/<span>10</span>
+                </p>
+                <div class="quiz-test-logo-img renaissance-img"></div>
+              </div>
+            </a>
+            <a class="categories-main__item-link" href="#/quiz">
+              <div class="quiz-test painting">
+                <p class="quiz-test-logo-text">
+                  Painting <span>0</span>/<span>10</span>
+                </p>
+                <div class="quiz-test-logo-img painting-img"></div>
+              </div>
+            </a>
+            <a class="categories-main__item-link" href="#/quiz">
+              <div class="quiz-test marine">
+                <p class="quiz-test-logo-text">
+                  Marine <span>0</span>/<span>10</span>
+                </p>
+                <div class="quiz-test-logo-img marine-img"></div>
+              </div>
+            </a>
+            <a class="categories-main__item-link" href="#/quiz">
+              <div class="quiz-test surrealism">
+                <p class="quiz-test-logo-text">
+                  Surrealism <span>0</span>/<span>10</span>
+                </p>
+                <div class="quiz-test-logo-img surrealism-img"></div>
+              </div>
+            </a>
+            <a class="categories-main__item-link" href="#/quiz">
+              <div class="quiz-test romanticism">
+                <p class="quiz-test-logo-text">
+                  Romanticism <span>0</span>/<span>10</span>
+                </p>
+                <div class="quiz-test-logo-img romanticism-img"></div>
+              </div>
+            </a>
+          </div>
+        </main>
+        <footer class="footer">
+          <p class="dev-name">Vitaly Undro</p>
+        </footer>
+      </div>
+    </section> -->
+    <!-- <section id="artists-quiz" class="artists-quiz-round">
+      <div class="container artists-quiz-container">
+        <header class="artists-quiz-header">
+          <p class="timer">
+            <span class="minutes">00</span>:<span class="seconds">00</span>
+          </p>
+        </header>
+        <main class="artists-quiz-main">
+          <h1 class="main-question">Who is the author of this picture?</h1>
+          <div class="main-question-image">
+            <div class="progress"></div>
+          </div>
+          <div class="main-answers">
+            <div class="answer">Peter Paul Rubens</div>
+            <div class="answer">Rembrandt van Rijn</div>
+            <div class="answer">Hieronymus Bosch</div>
+            <div class="answer">Leonardo da Vinci</div>
+          </div>
+        </main>
+        <footer class="footer">
+          <p class="dev-name">Vitaly Undro</p>
+        </footer>
+      </div>
+    </section> -->
+    <!-- <div id="popup" class="popup active">
+      <div class="popup__body">
+        <div class="popup__content">
+          <div class="popup__img">
+            <span class="material-icons answer-icon false"> cancel </span>
+          </div>
+          <h4 class="popup-title">name art</h4>
+          <div class="pop__text">name author,<span id="year">1964</span></div>
+          <button class="popup-next">Next</button>
+        </div>
+      </div>
+    </div> -->
+    <!-- <div id="popup-finish" class="popup-finish active">
+      <div class="popup-finish__body">
+        <div class="popup__content">
+          <div class="popup-finish__img"></div>
+          <h4 class="popup-finish-title">Congratulations!</h4>
+          <div class="popup-finish__result">
+            <span class="сorrect-answers">0</span>/<span class="all-answers"
+              >0</span
+            >
+          </div>
+          <div class="popup-finish-container-link">
+            <a href="/#" class="popup-link"
+              ><div class="popup-link__home">Home</div></a
+            >
+            <a href="#/categories" class="popup-link"
+              ><div class="popup-link__categories">Next Quiz</div></a
+            >
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </body>
+</html>

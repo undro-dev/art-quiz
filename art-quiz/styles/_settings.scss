@@ -1,0 +1,207 @@
+.settings {
+  width: 100%;
+  height: 100vh;
+  background-color: $main-bg-color;
+}
+.settings-header {
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  a {
+    color: white;
+    transition: color 0.5s;
+    &:hover {
+      color: $main-hover-color;
+    }
+  }
+}
+
+.settings-main,
+.categories-main {
+  height: calc(100% - 150px);
+}
+.settings-main {
+  padding: 0 15px;
+}
+
+.wrapper-settings {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  .wrapper-settings-item {
+    width: 492px;
+    width: 100%;
+
+    h2 {
+      color: white;
+      font-family: $main-font;
+    }
+  }
+  .wrapper-settings-btns {
+    height: 100%;
+    flex-grow: 1;
+  }
+}
+@media screen and (max-width: 774px) {
+  .wrapper-settings {
+    flex-direction: column;
+    flex-grow: 1;
+    .wrapper-settings-item {
+      width: 100%;
+    }
+    .wrapper-settings-btns {
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      margin-top: 15px;
+    }
+  }
+  .volume-settings {
+    width: 50%;
+  }
+}
+
+.input-volume {
+  width: 100%;
+}
+.volume-icon {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  .volume {
+    color: white;
+    transition: color 0.5s;
+    &:hover {
+      cursor: pointer;
+      color: $main-hover-color;
+    }
+  }
+}
+.time-settings,
+.time-settings-answer {
+  margin-top: 80px;
+}
+
+.onoffswitch {
+  position: relative;
+  width: 90px;
+  // -webkit-user-select: none;
+  // -moz-user-select: none;
+  // -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.onoffswitch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 20px;
+}
+.onoffswitch-inner {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before,
+.onoffswitch-inner:after {
+  display: block;
+  float: left;
+  width: 50%;
+  height: 30px;
+  padding: 0;
+  line-height: 30px;
+  font-size: 14px;
+  color: white;
+  font-family: Trebuchet, Arial, sans-serif;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+  content: "ON";
+  padding-left: 10px;
+  background-color: $main-hover-color;
+  color: #ffffff;
+}
+.onoffswitch-inner:after {
+  content: "OFF";
+  padding-right: 10px;
+  text-align: right;
+}
+.onoffswitch-switch {
+  display: block;
+  width: 18px;
+  margin: 6px;
+  background: #ffffff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 56px;
+  // border: 2px solid #999999;
+  border-radius: 20px;
+  transition: all 0.3s ease-in 0s;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+  right: 0px;
+}
+
+.wrapper-input {
+  display: flex;
+  column-gap: 24px;
+  align-items: center;
+  .wrapper-input-btn {
+    color: white;
+    border-radius: 100%;
+    width: 36px;
+    height: 36px;
+    transition: background-color 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+      background-color: $main-hover-color;
+      color: black;
+      cursor: pointer;
+    }
+  }
+  .wrapper-input-count {
+    color: white;
+    font-size: 28px;
+    font-family: $main-font;
+    display: block;
+    width: 25px;
+  }
+}
+.wrapper-settings-btns {
+  display: flex;
+  justify-content: right;
+  column-gap: 8px;
+  align-self: flex-end;
+}
+.settings-btns {
+  color: white;
+  outline: none;
+  align-self: flex-end;
+  margin-bottom: 50px;
+  background: none;
+  cursor: pointer;
+  font-family: $main-font;
+  width: 287px;
+  height: 62px;
+  border: 1px solid white;
+  border-radius: 30px;
+  transition: background-color 0.5s;
+  &:hover {
+    background-color: $main-hover-color;
+    color: black;
+    cursor: pointer;
+  }
+}

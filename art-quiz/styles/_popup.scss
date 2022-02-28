@@ -1,0 +1,124 @@
+.popup,
+.popup-finish {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: all 0.8s ease 0s;
+}
+.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup__body,
+.popup-finish__body {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 10px;
+}
+.popup__content {
+  background-color: white;
+  color: black;
+  font-family: $main-font;
+  font-weight: bold;
+  max-width: 800px;
+  padding: 30px;
+  position: relative;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // transition: all 0.8s ease 0s;
+  // opacity: 0;
+  // transform: translate(0px, -100%);
+  row-gap: 10px;
+  h4 {
+    margin: 0;
+  }
+}
+
+.popup__img {
+  width: 462px;
+  height: 416px;
+  background-image: url("../public/100full.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 30px;
+  position: relative;
+  .true {
+    color: green;
+    font-size: 35px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+  .false {
+    color: red;
+    font-size: 35px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+}
+.popup-finish__img {
+  width: 189px;
+  height: 178px;
+  background-image: url("../public/cup_for_popup.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.popup-finish-title {
+  font-size: 42px;
+}
+.popup-finish__result {
+  font-size: 82px;
+}
+.popup-finish-container-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  column-gap: 15px;
+  a {
+    text-decoration: none;
+    color: black;
+    .popup-link__home,
+    .popup-link__categories {
+      background-color: $main-hover-color;
+      width: 210px;
+      height: 50px;
+      border-radius: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: box-shadow 0.4s;
+      &:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+      }
+    }
+  }
+}
+
+.popup-next {
+  background-color: $main-hover-color;
+  width: 70%;
+  height: 50px;
+  border-radius: 30px;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+  transition: box-shadow 0.4s;
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  }
+}
