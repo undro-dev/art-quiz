@@ -13,8 +13,12 @@ const router = (route) => {
       return body.appendChild(pages.setting());
     case "#/categories":
       return body.appendChild(pages.categories());
+    case "#/categories-pictures":
+      return body.appendChild(pages.categoriesPictureQuiz());
     case "#/quiz":
       return body.appendChild(pages.artistQuiz());
+    case "#/quiz-pictures":
+      return body.appendChild(pages.picturesQuiz());
     default:
       return console.log("404!!!");
   }

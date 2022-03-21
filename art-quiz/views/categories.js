@@ -6,7 +6,7 @@ export default () => {
   const views = `<div class="container categories-container">
 	<header class="categories-header">
 		<div class="categories__logo"></div>
-		<a class="categories__home-link" href="#/">Home</a>
+		<a class="categories__home-link" href="#/">Главная страница</a>
 		<div class="empty-div"></div>
 		<a href="#/settings"
 			><span class="material-icons icon-settings">settings</span></a
@@ -56,7 +56,7 @@ export default () => {
 			<a class="categories-main__item-link" href="#/quiz">
 				<div class="quiz-test realism" data-category="realism">
 					<p class="quiz-test-logo-text">
-						Realism <span>0</span>/<span>10</span>
+						Realism <span>${resultsQuiz.realism}</span>/<span>10</span>
 					</p>
 					<div class="quiz-test-logo-img realism-img"></div>
 				</div>
@@ -64,7 +64,7 @@ export default () => {
 			<a class="categories-main__item-link" href="#/quiz">
 				<div class="quiz-test religion" data-category="religion">
 					<p class="quiz-test-logo-text">
-						Religion <span>0</span>/<span>10</span>
+						Religion <span>${resultsQuiz.religion}</span>/<span>10</span>
 					</p>
 					<div class="quiz-test-logo-img religion-img"></div>
 				</div>
@@ -72,7 +72,7 @@ export default () => {
 			<a class="categories-main__item-link" href="#/quiz">
 				<div class="quiz-test renaissance" data-category="renaissance">
 					<p class="quiz-test-logo-text">
-						Renaissance <span>0</span>/<span>10</span>
+						Renaissance <span>${resultsQuiz.renaissance}</span>/<span>10</span>
 					</p>
 					<div class="quiz-test-logo-img renaissance-img"></div>
 				</div>
@@ -80,7 +80,7 @@ export default () => {
 			<a class="categories-main__item-link" href="#/quiz">
 				<div class="quiz-test painting" data-category="painting">
 					<p class="quiz-test-logo-text">
-						Painting <span>0</span>/<span>10</span>
+						Painting <span>${resultsQuiz.painting}</span>/<span>10</span>
 					</p>
 					<div class="quiz-test-logo-img painting-img"></div>
 				</div>
@@ -88,7 +88,7 @@ export default () => {
 			<a class="categories-main__item-link" href="#/quiz">
 				<div class="quiz-test marine" data-category="marine">
 					<p class="quiz-test-logo-text">
-						Marine <span>0</span>/<span>10</span>
+						Marine <span>${resultsQuiz.marine}</span>/<span>10</span>
 					</p>
 					<div class="quiz-test-logo-img marine-img"></div>
 				</div>
@@ -96,7 +96,7 @@ export default () => {
 			<a class="categories-main__item-link" href="#/quiz">
 				<div class="quiz-test surrealism" data-category="surrealism">
 					<p class="quiz-test-logo-text">
-						Surrealism <span>0</span>/<span>10</span>
+						Surrealism <span>${resultsQuiz.surrealism}</span>/<span>10</span>
 					</p>
 					<div class="quiz-test-logo-img surrealism-img"></div>
 				</div>
@@ -104,7 +104,7 @@ export default () => {
 			<a class="categories-main__item-link" href="#/quiz">
 				<div class="quiz-test romanticism" data-category="romanticism">
 					<p class="quiz-test-logo-text">
-						Romanticism <span>0</span>/<span>10</span>
+						Romanticism <span>${resultsQuiz.romanticism}</span>/<span>10</span>
 					</p>
 					<div class="quiz-test-logo-img romanticism-img"></div>
 				</div>
@@ -120,7 +120,7 @@ export default () => {
   categories.classList = "categories-quiz";
   categories.innerHTML = views;
 
-  toChangeCategories(categories, ".quiz-test");
+  // toChangeCategories(categories, ".quiz-test");
   startQuiz(categories, ".quiz-test");
 
   return categories;

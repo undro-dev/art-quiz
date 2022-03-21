@@ -36,11 +36,14 @@
     font-family: $main-font;
   }
   .main-question-image {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
     position: relative;
     width: 60%;
     height: 90%;
     border-radius: 15px;
-    background-image: url("../assets/images/quiz_image/0full.webp");
     background-repeat: no-repeat;
     background-size: 100% 100%;
   }
@@ -81,7 +84,7 @@
 .answer {
   color: white;
   font-family: $main-font;
-  width: 40%;
+  min-width: 40%;
   height: 50px;
   border: 1px solid white;
   border-radius: 30px;
@@ -93,6 +96,13 @@
     cursor: pointer;
     background-color: $main-hover-color;
     color: black;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .artists-quiz-main {
+    .main-question-image {
+      width: 40%;
+    }
   }
 }
 
@@ -114,4 +124,33 @@
   .main-answers {
     font-size: 12px;
   }
+}
+.picture-answer {
+  width: 40%;
+  height: 40%;
+  cursor: pointer;
+  border-radius: 30px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.answers-pictures {
+  height: 90% !important;
+}
+.progress-pictures {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  width: 100%;
+  height: 50px;
+  .progress-item {
+    height: 15px;
+    width: 15px;
+    border: 1px solid black;
+    border-radius: 100%;
+    background-color: #c4c4c4;
+  }
+}
+audio {
+  visibility: hidden;
 }

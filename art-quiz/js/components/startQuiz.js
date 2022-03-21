@@ -8,16 +8,22 @@ function startQuiz(parent, selector) {
 
   function toGetArrayOfCategory() {
     let nowCategory,
-      answers = [];
+      answers = [],
+      answersImage = [];
+
     nowQuizCategory.forEach((item) => {
       item.addEventListener("click", (e) => {
         nowCategory = e.target.parentNode.dataset.category;
+
         let arr = images.filter((item) => item.category == nowCategory);
         arr.forEach((el) => {
           answers.push(el.author);
+          answersImage.push(el.imageNum);
         });
+
         localStorageArrAndAnswer.addSettings("arr", arr);
         localStorageArrAndAnswer.addSettings("answers", answers);
+        localStorageArrAndAnswer.addSettings("answersImage", answersImage);
       });
     });
   }

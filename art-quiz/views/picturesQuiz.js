@@ -1,4 +1,5 @@
-import { quizAboutArtist } from "../js/components/quizAboutArtist";
+import quizAboutPictures from "../js/components/quizAboutPictures";
+
 export default () => {
   const views = `<div class="container artists-quiz-container">
 	<header class="artists-quiz-header">
@@ -10,20 +11,16 @@ export default () => {
 		<p class="timer">
 			<span class="minutes">00</span>:<span class="seconds">00</span>
 		</p>
-		<a href="#/categories"
+		<a href="#/categories-pictures"
       ><span class="material-icons artists-quiz-header__icon"
         >arrow_back</span
       ></a
     >
 	</header>
 	<main class="artists-quiz-main">
-		<h1 class="main-question">Кто автор данной картины?</h1>
-		<div class="main-question-image">
-			<div class="progress"></div>
-		</div>
-		<div class="main-answers">
-
-		</div>
+		<h1 class="main-question">Какую из этих картин нарисовал?</h1>
+		<div class="main-question-image answers-pictures"></div>
+		<div class="progress-pictures"></div>
 	</main>
 	<footer class="footer">
 		<p class="dev-name">Vitaly Undro</p>
@@ -55,26 +52,23 @@ export default () => {
       <a href="#/" class="popup-link"
         ><div class="popup-link__home">Home</div></a
       >
-      <a href="#/categories" class="popup-link"
+      <a href="#/categories-pictures" class="popup-link"
         ><div class="popup-link__categories">Next Quiz</div></a
       >
     </div>
   </div>
 </div>
-<audio src="./correct.mp3"></audio>
-<audio src="./uncorrect.mp3"></audio>
-</div>
-`;
+</div>`;
 
   const artistQuizWrapper = document.createElement("section");
   artistQuizWrapper.classList = "categories-quiz";
   artistQuizWrapper.innerHTML = views;
 
-  quizAboutArtist(
+  quizAboutPictures(
     artistQuizWrapper,
-    ".progress",
-    ".main-question-image",
-    ".main-answers",
+    ".progress-pictures",
+    ".answers-pictures",
+    ".main-question",
     ".popup",
     ".popup-finish"
   );

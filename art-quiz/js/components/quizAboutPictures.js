@@ -2,32 +2,32 @@ import { localStorageArrAndAnswer } from "./startQuiz";
 import MethodsForQuiz from "./methodsForQuiz";
 let methodsForQuiz = new MethodsForQuiz();
 
-function quizAboutArtist(
+function quizAboutPictures(
   wrapper,
   progress,
-  img,
   wrapperAnswers,
+  question,
   popup,
   popupFinish
 ) {
-  let resultsQuiz = JSON.parse(localStorage.getItem("resultsQuiz"));
+  let resultsPicturesQuiz = JSON.parse(
+    localStorage.getItem("resultsPicturesQuiz")
+  );
   let settings = JSON.parse(localStorage.getItem("settingsApp"));
 
   let arrayWithQuestions = localStorageArrAndAnswer.getSettings().arr,
-    arrayWithAnswers = localStorageArrAndAnswer.getSettings().answers,
-    randomQuestion = methodsForQuiz
-      .shuffleArray(arrayWithQuestions)
-      .splice(0, 10),
+    mainQuestion = wrapper.querySelector(question),
+    questions = [...arrayWithQuestions],
+    randomQuestion = methodsForQuiz.shuffleArray(questions).splice(0, 10),
     progressBlock = wrapper.querySelector(progress),
     answersBlock = wrapper.querySelector(wrapperAnswers),
-    imgBlock = wrapper.querySelector(img),
+    seconds = wrapper.querySelector(".seconds"),
     popUp = wrapper.querySelector(popup),
     popUpFinish = wrapper.querySelector(popupFinish),
     btnNext = popUp.querySelector(".popup-next"),
-    seconds = wrapper.querySelector(".seconds"),
     timerId = null,
-    indexOfQuestion = 0, //индекс текущего вопроса
-    countTrueAnswers = 0; //счетчик правильных ответов
+    indexOfQuestion = 0,
+    countTrueAnswers = 0;
 
   function timer() {
     if (+settings.timeToAnswer == false) return;
@@ -44,25 +44,41 @@ function quizAboutArtist(
     }, 1000);
   }
 
-  //добавляем в попап актуальную информацию о картинах
-  function addCorrectDataToPopup({ name, imageNum, author, year }) {
-    let img = popUp.querySelector(".popup__img"),
-      title = popUp.querySelector(".popup-title"),
-      authorName = popUp.querySelector(".pop__text");
-    img.style.backgroundImage = `url("./${imageNum}full.webp")`;
-    title.textContent = `${name}`;
-    authorName.textContent = `${author}, ${year}`;
+  //4 ответа для блока
+  function toCreateAnswers(arrAnswers) {
+    arrAnswers = methodsForQuiz.shuffleArray(arrAnswers);
+    arrAnswers.forEach((el) => {
+      let answer = document.createElement("DIV");
+      answer.classList.add("picture-answer");
+      answer.style.backgroundImage = `url("./${el}full.webp")`;
+      answer.setAttribute("data-image", `${el}`);
+      answersBlock.append(answer);
+    });
   }
 
-  //проверяем ответ юзера и вызывем соответствующий попап с информацией
-  function getAnswer(author) {
-    let answersItem = answersBlock.querySelectorAll(".answer");
+  //создаем рандомные ответы с одним правильным
+  function answersRandom({ imageNum, author }) {
+    let uniqueAnswers = [...arrayWithQuestions],
+      arrWithAnswer = uniqueAnswers.filter((item) => item.author !== author),
+      arrWithNumberImage = [];
+
+    arrWithAnswer.forEach((item) => arrWithNumberImage.push(item.imageNum));
+
+    let answersRandom = methodsForQuiz
+      .shuffleArray(arrWithNumberImage)
+      .splice(0, 3);
+    answersRandom[3] = imageNum;
+    return answersRandom;
+  }
+
+  function getAnswer(numImage) {
+    let answersItem = wrapper.querySelectorAll(".picture-answer");
     answersItem.forEach((item) => {
       item.addEventListener("click", (e) => {
         clearInterval(timerId);
         if (
-          e.target.textContent === author &&
-          e.target.classList.contains("answer")
+          e.target.getAttribute("data-image") === numImage &&
+          e.target.classList.contains("picture-answer")
         ) {
           countTrueAnswers++;
           getTrueAnswer(true);
@@ -95,23 +111,21 @@ function quizAboutArtist(
     }
   }
 
-  //при клике вызываем следующий вопрос
+  //добавляем в попап актуальную информацию о картинах
+  function addCorrectDataToPopup({ name, imageNum, author, year }) {
+    let img = popUp.querySelector(".popup__img"),
+      title = popUp.querySelector(".popup-title"),
+      authorName = popUp.querySelector(".pop__text");
+    img.style.backgroundImage = `url("./${imageNum}full.webp")`;
+    title.textContent = `${name}`;
+    authorName.textContent = `${author}, ${year}`;
+  }
+
   function nextQuestion() {
     popUp.classList.remove("active");
     indexOfQuestion++;
     answersBlock.innerHTML = "";
     load(randomQuestion[indexOfQuestion]);
-  }
-
-  function getFinishPopup({ category }) {
-    let coreectAnswer = popUpFinish.querySelector(".сorrect-answers"),
-      allQuestion = popUpFinish.querySelector(".all-question");
-    popUp.classList.remove("active");
-    popUpFinish.classList.add("active");
-    coreectAnswer.textContent = `${countTrueAnswers}`;
-    allQuestion.textContent = `${randomQuestion.length}`;
-    resultsQuiz[category] = countTrueAnswers;
-    localStorage.setItem("resultsQuiz", JSON.stringify(resultsQuiz));
   }
 
   function finishRound() {
@@ -121,17 +135,25 @@ function quizAboutArtist(
       getFinishPopup(randomQuestion[indexOfQuestion]);
     }
   }
+  function getFinishPopup({ category }) {
+    let coreectAnswer = popUpFinish.querySelector(".сorrect-answers"),
+      allQuestion = popUpFinish.querySelector(".all-question");
+    popUp.classList.remove("active");
+    popUpFinish.classList.add("active");
+    coreectAnswer.textContent = `${countTrueAnswers}`;
+    allQuestion.textContent = `${randomQuestion.length}`;
+    resultsPicturesQuiz[category] = countTrueAnswers;
+    localStorage.setItem(
+      "resultsPicturesQuiz",
+      JSON.stringify(resultsPicturesQuiz)
+    );
+  }
 
   function load({ author, imageNum }) {
-    imgBlock.style.backgroundImage = `url("./${imageNum}full.webp")`;
-
-    let answers = methodsForQuiz.answersRandom(
-      arrayWithAnswers,
-      randomQuestion[indexOfQuestion].author
-    );
-
-    methodsForQuiz.toCreateAnswers(answers, "DIV", "answer", answersBlock);
-    getAnswer(author);
+    mainQuestion.textContent = `Какую из этих картин нарисовал ${author}?`;
+    answersRandom(randomQuestion[indexOfQuestion]);
+    toCreateAnswers(answersRandom(randomQuestion[indexOfQuestion]));
+    getAnswer(imageNum);
     timer();
   }
 
@@ -141,10 +163,8 @@ function quizAboutArtist(
     "progress-item",
     progressBlock
   );
-
   load(randomQuestion[indexOfQuestion]);
-
   btnNext.addEventListener("click", finishRound);
 }
 
-export { quizAboutArtist };
+export default quizAboutPictures;

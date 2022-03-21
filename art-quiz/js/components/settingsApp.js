@@ -27,6 +27,13 @@ export default function settingsApp(
     return inputVolume.value;
   };
 
+  const toPlayMusic = () => {
+    let audio = document.createElement("AUDIO");
+    audio.src = "./correct.mp3";
+    audio.volume = getVolumeValue() / 100;
+    audio.play();
+  };
+
   const getTimeGameValue = () => {
     timeGameInput.checked ? countTime.textContent : (countTime.textContent = 0);
 
@@ -69,6 +76,7 @@ export default function settingsApp(
   }
 
   inputVolume.addEventListener("input", getVolumeValue);
+  inputVolume.addEventListener("change", toPlayMusic);
   timeGameInput.addEventListener("input", getTimeGameValue);
   btnAdd.addEventListener("click", addTimeOnAnswer);
   btnRemove.addEventListener("click", removeTimeOnAnswer);

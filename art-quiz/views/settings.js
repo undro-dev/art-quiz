@@ -21,7 +21,7 @@ export default () => {
     <div class="wrapper-settings">
       <div class="wrapper-settings-item">
         <div class="volume-settings">
-          <h2>Volume</h2>
+          <h2>Звук</h2>
           <input class="input-volume" type="range" value= ${
             localStorageUtil.getSettings().volume
           } />
@@ -33,7 +33,7 @@ export default () => {
           </div>
         </div>
         <div class="time-settings">
-          <h2>Time game</h2>
+          <h2>Игра на время</h2>
           <div class="onoffswitch">
             <input
               type="checkbox"
@@ -50,7 +50,7 @@ export default () => {
           </div>
         </div>
         <div class="time-settings-answer">
-          <h2>Time to answer</h2>
+          <h2>Время на вопрос</h2>
           <div class="wrapper-input">
             <div class="wrapper-input-btn" id="btn-remove">
               <span class="material-icons icon-settings"> remove </span>
@@ -65,8 +65,8 @@ export default () => {
         </div>
       </div>
       <div class="wrapper-settings-btns">
-        <button id="default" class="settings-btns">Default</button>
-        <button id="save" class="settings-btns">Save</button>
+        <button id="default" class="settings-btns">По умолчанию</button>
+        <button id="save" class="settings-btns">Сохранить</button>
       </div>
     </div>
   </main>
